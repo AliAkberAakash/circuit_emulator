@@ -14,17 +14,24 @@ class LEDComponent extends Component{
 
   connect(Component component){
     component.pin1.connectionStream.listen((event) {
-      pin1.emitConnection();
+      if(event!=null) {
+        pin1.emitConnection(event);
+      }
       _checkStatus();
     });
     component.pin2.connectionStream.listen((event) {
-      pin2.emitConnection();
+      if(event!=null) {
+        pin2.emitConnection(event);
+      }
       _checkStatus();
     });
   }
 
   _checkStatus(){
-    status = pin1.connectionValue==pin2.connectionValue;
+    if(pin1.connectionValue?.uniqueId!=null && pin2.connectionValue?.uniqueId!=null) {
+      status = pin1.connectionValue?.uniqueId == pin2.connectionValue?.uniqueId;
+    }
+    print("status of led : $status");
   }
 
 }
