@@ -1,7 +1,5 @@
 import 'package:rxdart/rxdart.dart';
-import 'package:uuid/uuid.dart';
 import '../../energy/energy.dart';
-import '../../energy/positive_energy.dart';
 
 abstract class Pin{
   final BehaviorSubject<Energy?> _connectionController = BehaviorSubject.seeded(null);
