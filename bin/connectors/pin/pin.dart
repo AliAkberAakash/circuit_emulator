@@ -6,7 +6,7 @@ abstract class Pin{
   Stream<Energy?> get connectionStream => _connectionController.stream;
   Energy? get connectionValue  => _connectionController.valueOrNull;
 
-  void emitConnection(Energy energy){
+  void emitConnection(Energy? energy){
     _connectionController.add(energy);
   }
 }

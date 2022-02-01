@@ -15,6 +15,10 @@ class PowerComponent extends Component{
   @override
   Pin pin2 = NegativePin();
 
+  PowerComponent(){
+    start();
+  }
+
   void start(){
     String uuid = Uuid().v4();
     Energy posEnergy = PositiveEnergy(uuid);

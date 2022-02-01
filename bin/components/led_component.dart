@@ -12,7 +12,20 @@ class LEDComponent extends Component{
 
   bool status = false;
 
-  connect(Component component){
+  LEDComponent(){
+    _initListeners();
+  }
+
+  void _initListeners(){
+    pin1.connectionStream.listen((event) {
+      _checkStatus();
+    });
+    pin2.connectionStream.listen((event) {
+      _checkStatus();
+    });
+  }
+
+/*  connect(Component component){
     component.pin1.connectionStream.listen((event) {
       if(event!=null) {
         pin1.emitConnection(event);
@@ -25,7 +38,7 @@ class LEDComponent extends Component{
       }
       _checkStatus();
     });
-  }
+  }*/
 
   _checkStatus(){
     if(pin1.connectionValue?.uniqueId!=null && pin2.connectionValue?.uniqueId!=null) {
