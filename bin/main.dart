@@ -13,11 +13,15 @@ StreamSubscription connect(Component c1, Component c2){
 }
 
 void main() async{
-  final LEDComponent ledComponent = LEDComponent();
+  final LEDComponent ledComponent1 = LEDComponent();
+  final LEDComponent ledComponent2 = LEDComponent();
   final PowerComponent powerComponent = PowerComponent();
 
   final Solder solder = Solder();
 
-  solder.connect(powerComponent, ledComponent);
-  solder.connect(ledComponent, powerComponent);
+  solder.connect(powerComponent, ledComponent1);
+  await Future.delayed(Duration(milliseconds: 100));
+  solder.connect(ledComponent1, ledComponent2);
+  await Future.delayed(Duration(milliseconds: 100));
+  solder.connect(ledComponent2, powerComponent);
 }

@@ -25,21 +25,6 @@ class LEDComponent extends Component{
     });
   }
 
-/*  connect(Component component){
-    component.pin1.connectionStream.listen((event) {
-      if(event!=null) {
-        pin1.emitConnection(event);
-      }
-      _checkStatus();
-    });
-    component.pin2.connectionStream.listen((event) {
-      if(event!=null) {
-        pin2.emitConnection(event);
-      }
-      _checkStatus();
-    });
-  }*/
-
   _checkStatus(){
     if(pin1.connectionValue?.uniqueId!=null && pin2.connectionValue?.uniqueId!=null) {
       status = pin1.connectionValue?.uniqueId == pin2.connectionValue?.uniqueId;
