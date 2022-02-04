@@ -16,6 +16,8 @@ void main() async{
   final LEDComponent ledComponent = LEDComponent();
   final PowerComponent powerComponent = PowerComponent();
 
-  Solder.connect(powerComponent, ledComponent);
-  Solder.connect(ledComponent, powerComponent);
+  final Solder solder = Solder();
+
+  solder.connect(powerComponent, ledComponent);
+  solder.connect(ledComponent, powerComponent);
 }
