@@ -3,6 +3,7 @@ import 'dart:async';
 import 'components/component.dart';
 import 'components/led_component.dart';
 import 'components/power_component.dart';
+import 'components/switch_component.dart';
 import 'connectors/solder.dart';
 
 StreamSubscription connect(Component c1, Component c2){
@@ -15,6 +16,7 @@ StreamSubscription connect(Component c1, Component c2){
 void main() async{
   final LEDComponent ledComponent1 = LEDComponent();
   final LEDComponent ledComponent2 = LEDComponent();
+  final SwitchComponent switchComponent = SwitchComponent();
   final PowerComponent powerComponent = PowerComponent();
 
   final Solder solder = Solder();
@@ -23,5 +25,13 @@ void main() async{
   await Future.delayed(Duration(milliseconds: 100));
   solder.connect(ledComponent1, ledComponent2);
   await Future.delayed(Duration(milliseconds: 100));
-  solder.connect(ledComponent2, powerComponent);
+  solder.connectSwitch(ledComponent2, switchComponent);
+  await Future.delayed(Duration(milliseconds: 100));
+  solder.connect(switchComponent, powerComponent);
+  await Future.delayed(Duration(milliseconds: 100));
+
+  switchComponent.turnOn();
+
+  //switchComponent.turnOff();
+
 }
