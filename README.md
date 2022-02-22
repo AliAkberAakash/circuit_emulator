@@ -11,8 +11,9 @@ to simulate electrical circuits.
 - **Power Unit**
 - Resistor
 - Circuit
-- Parallel Connection - Series Connection
-  Note: Bold marked components are priority for release version 1.0.0
+- Parallel Connection 
+- Series Connection 
+### Note: Bold marked components are priority for release version 1.0.0
   
 ##  Common Properties:
 - In this ecosystem almost everything is a component.
